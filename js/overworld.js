@@ -202,12 +202,12 @@
     }
   }
 
-  function gain(n, why) { const st = PQ.state; st.td += n; st.earned += n; OW.toast('+' + n + ' TD  ' + why, C.green); }
+  function gain(n, why) { const st = PQ.state; st.td += n; st.earned += n; OW.toast('+' + n + ' T$  ' + why, C.green); }
   function stealTD(n, why) {
     const st = PQ.state;
     const lost = Math.min(st.td, n);
     st.td -= lost;
-    OW.toast((lost ? '-' + lost + ' TD  ' : '') + why, C.red);
+    OW.toast((lost ? '-' + lost + ' T$  ' : '') + why, C.red);
   }
 
   function nearDoor() {
@@ -249,7 +249,7 @@
         e.size--;
         spawned.push({ type: 'slime', x: e.x + 8, y: e.y, vx: 0, vy: 0, t: 0, hp: 1, size: e.size, stun: 0.6, hits: 0, hitT: 0, grow: 0 });
         OW.toast('SHADOW IT SPLIT! UNMANAGED CLOUD ACCOUNT!', C.purple);
-      } else { e.dead = true; st.td += 3; st.earned += 3; OW.toast('+3 TD  ACCOUNT DECOMMISSIONED', C.green); }
+      } else { e.dead = true; st.td += 3; st.earned += 3; OW.toast('+3 T$  ACCOUNT DECOMMISSIONED', C.green); }
     }
   }
 
@@ -360,7 +360,7 @@
         if (Math.hypot(ch.x - player.x, ch.y - player.y) < 16 && (I.pressed('KeyE') || I.pressed('Enter'))) {
           chests.splice(i, 1);
           if (Math.random() < 0.45) { PQ.sfx('error'); player.hurt = 1; stealTD(15, 'BAD FIRMWARE! IT BRICKED YOUR GEAR'); }
-          else { const n = PQ.pick([10, 10, 20]); st.td += n; st.earned += n; PQ.sfx('cash'); OW.toast('LICENSE KEY FOUND! +' + n + ' TD', C.green); OW.burstBills(n); }
+          else { const n = PQ.pick([10, 10, 20]); st.td += n; st.earned += n; PQ.sfx('cash'); OW.toast('LICENSE KEY FOUND! +' + n + ' T$', C.green); OW.burstBills(n); }
           return;
         }
       }

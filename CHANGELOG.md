@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1] - 2026-10-02
+
+### Changed
+- Currency renamed to Tech$$$ (abbreviated T$).
+- Bill art is drawn in code only; the original bill image and concept doc are no longer in the repo.
+- Added an "All games" link to the landing page at https://rtlucht.github.io/.
+
 ## [1.0.0] - 2026-10-02
 
 ### Added

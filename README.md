@@ -1,6 +1,6 @@
-# Uptime Quest: The TekDollar Run — System Engineer Edition
+# Uptime Quest: The Tech$$$ Run — System Engineer Edition
 
-The sequel to [Packet Quest](https://github.com/RTLucht/packet-quest). You are a junior system engineer in The Enterprise: servers crash, disks fill, users forget their passwords. Take tickets at HQ, get to the server room, cloud island, or user's desk, fix it in a mini-game before the SLA runs out, and earn **TekDollars**. Rank up from Tier 1 Admin to Principal of the Server Realm and defeat The Blue Screen of Doom.
+The sequel to [Packet Quest](https://github.com/RTLucht/packet-quest). You are a junior system engineer in The Enterprise: servers crash, disks fill, users forget their passwords. Take tickets at HQ, get to the server room, cloud island, or user's desk, fix it in a mini-game before the SLA runs out, and earn **Tech$$$**. Rank up from Tier 1 Admin to Principal of the Server Realm and defeat The Blue Screen of Doom.
 
 Built by a three-model team: Claude (engine, overworld, flow, 4 mini-games), Codex (4 mini-games, bug review), and Grok (design brief, economy, bosses, tips).
 
@@ -48,7 +48,7 @@ Memory Leak Blob (grows until you restart it), Zombie Processes (need three zaps
 ## Fun touches
 
 - "Days since last outage" sign at HQ: +1 per in-game day, resets on red-SLA misses, boss losses, burnout, or Friday failures.
-- Hidden **dns** button: solves the puzzle, pays 1 TD, sad trombone.
+- Hidden **dns** button: solves the puzzle, pays 1 T$, sad trombone.
 - On-call pager, 30 real sysadmin tips on loading screens, local leaderboard.
 
 ## Development

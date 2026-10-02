@@ -1,6 +1,6 @@
 > Grok design brief for Uptime Quest (2026-10-02). Adopted (adapted to the existing engine) into js/config.js: economy, shop, cert tiers, boss phases, Blue Screen triage order, Read-Only Friday, uptime sign, tips, flavor lines.
 
-Assumptions: the shipped pay formula, SLA clocks (150/110/85s), speed bonus, DNS=1 TD, and rank gates stay as they are. L1/L2/L3 are World 1/2/3. A round loss boots you to the map with the ticket still open and the SLA still running. A win closes it. Hearts: 3. Contact is 1 heart unless noted. 0 hearts wakes you at HQ. Pad: D-pad, A, B.
+Assumptions: the shipped pay formula, SLA clocks (150/110/85s), speed bonus, DNS=1 T$, and rank gates stay as they are. L1/L2/L3 are World 1/2/3. A round loss boots you to the map with the ticket still open and the SLA still running. A win closes it. Hearts: 3. Contact is 1 heart unless noted. 0 hearts wakes you at HQ. Pad: D-pad, A, B.
 
 ## 1. Mini-games
 
@@ -46,14 +46,14 @@ L2: one PAIR couple. Patching both within 1.5s costs a life. L3: at 20s and 40s,
 
 Boss mode: 3 scripts, 10s each, 1 strike, no pause. The live bug is a prod target (`*` or `All-Servers`). Dev-only lines are decoys.
 
-Host DNS button on these four: auto-clears the round for 1 TD and the trombone. Count DNS-ula overrides that in §4.
+Host DNS button on these four: auto-clears the round for 1 T$ and the trombone. Count DNS-ula overrides that in §4.
 
 ## 2. Enemies
 
 - **Memory Leak Blob:** drifts toward you, +1 size every 8s (max 3 tiles) and faster as it grows. Contact: 1 heart and a 2s slow. Each zap shrinks one stage. At size 0 it dies. A Restart Service pad kills it at any size.
 - **Zombie Processes:** 0.5 tile/s, cardinal shamble, bounce off racks. Contact: 1 heart. One zap stuns 1s and it gets back up. Three zaps inside 6s (`kill -9`) kill it. Anything less and it respawns 4s later at half size.
 - **Expired Cert Ghost:** spawns at 00:00, gone at 04:00, drifts through walls toward the nearest HTTPS terminal. Contact, or using a terminal it reached: 1 heart and RDP/fast-travel locked 45s. Zap passes through. Renew by holding A on that terminal for 2s, or burn a Cert charge.
-- **Service Account Phantom:** visible 3s, invisible 3s, fixed patrol. Contact has no damage. Zap the owner plaque first (name appears), then zap the phantom once: it retires and drops 15 TD. Zapping it before the plaque respawns it and sets payouts ×0.5 for 90s.
+- **Service Account Phantom:** visible 3s, invisible 3s, fixed patrol. Contact has no damage. Zap the owner plaque first (name appears), then zap the phantom once: it retires and drops 15 T$. Zapping it before the plaque respawns it and sets payouts ×0.5 for 90s.
 - **Snapshot Hoarder:** sits on one datastore. Every 20s it eats a snapshot and locks one chest. Contact: 2 hearts and knockback. Zaps bounce off. Pick up the 3 snapshot orbs in the room and drop them on the trash pad. The pile caves in and it leaves. Zapping the pile adds a snapshot.
 - **Shadow IT Slime:** hops at you. First zap splits it into 2 mid slimes. Each mid zap splits into 2 tiny ones that run for the map edge. Contact at any size: 1 heart and a new ticket one urgency step higher. Only tinies can be removed, and only by walking them into the sanctioned-zone gate.
 
@@ -78,22 +78,22 @@ Host DNS button on these four: auto-clears the round for 1 TD and the trombone. 
 
 You enter with your current hearts. Each phase allows one retry. A second phase fail, or 0 hearts, ends the fight: no reward, uptime resets to 0. §1 boss mode applies unless the line below replaces it.
 
-**The Disk Hog** (World 1, Branch Office). Unlock: lifetime ≥ 150, standing in the branch server room. Reward: 100 TD. Opens the World 2 road.
+**The Disk Hog** (World 1, Branch Office). Unlock: lifetime ≥ 150, standing in the branch server room. Reward: 100 T$. Opens the World 2 road.
 1. Disk Space Panic, §1 boss mode.
 2. Password Reset Rush: only Reset scores. Unlock or MFA is a strike. Quota 8, cap 60s, 2 strikes.
 3. Patch Tuesday on 4 racks, 2 of them IN USE (the backup job). Hold the 2 safe servers patched for 10s. Cap 50s, 2 lives.
 
-**Count DNS-ula** (World 2, DC Castle). Unlock: lifetime ≥ 450 and Disk Hog down. Reward: 150 TD. Opens World 3.
+**Count DNS-ula** (World 2, DC Castle). Unlock: lifetime ≥ 450 and Disk Hog down. Reward: 150 T$. Opens World 3.
 1. Script Commit boss mode. Every bug is a bad resolver or a `hosts` override.
 2. Short GPO: 5 rooms plus 2 side rooms, 50s. You carry one token, "DNS Suffix." Link it to the room marked DC-OU. Any other room fails the phase.
 3. Patch-style record board, 60s, quota 9, 2 lives. The prompt names A, PTR, or CNAME. Patching a different type costs a life. The host DNS button fixes one record on this phase, then locks for the rest of the fight.
 
-**The Auditor** (World 3, HQ). Unlock: lifetime ≥ 900, Count down, plus two stamps this world: one Patch Tuesday closed, and one Script Commit closed (a Golden Runbook bound to an HQ building counts as the second stamp). The door stays shut until both stamps are on. Reward: 200 TD. Opens the tower.
+**The Auditor** (World 3, HQ). Unlock: lifetime ≥ 900, Count down, plus two stamps this world: one Patch Tuesday closed, and one Script Commit closed (a Golden Runbook bound to an HQ building counts as the second stamp). The door stays shut until both stamps are on. Reward: 200 T$. Opens the tower.
 1. Patch Tuesday, §1 boss mode (6 of 9 held for 8s).
 2. Script Commit boss mode. The bug is an outdated runbook step.
 3. Backup Restore: side-scroll, 55s, pick up 3 tapes at fixed spots. A pit sends you to the start.
 
-**The Blue Screen of Doom** (tower). Unlock: lifetime ≥ 1500, Auditor down, one Backup Restore closed. Reward: 350 TD. Rank still follows lifetime (Principal at 2500).
+**The Blue Screen of Doom** (tower). Unlock: lifetime ≥ 1500, Auditor down, one Backup Restore closed. Reward: 350 T$. Rank still follows lifetime (Principal at 2500).
 
 Four cards, then a finale. Correct order: **Identity → Storage → Apps → Users.** Each card is 45s. A card played out of that order runs on a 30s clock. One retry per card. The finale has no retry.
 
@@ -112,9 +112,9 @@ Starting any ticket mini-game in that window (depot purchases do nothing) calls 
 1. The ticket you launched, forced to L3 numbers, cap 60s.
 2. Script Commit rollback: 2 scripts, 12s each. The bug is the change you just made.
 
-Win: ticket pays raw with the speed bonus capped at +10%, plus 25 TD. Loss: payout ×0.5, uptime resets to 0, ticket stays open, you wake at HQ.
+Win: ticket pays raw with the speed bonus capped at +10%, plus 25 T$. Loss: payout ×0.5, uptime resets to 0, ticket stays open, you wake at HQ.
 
-**Days since last outage** sits on the HQ sign. It starts at 0. At each Monday 00:00 it goes +1, unless an outage flag was set this week, in which case it becomes 0 and the sad jingle plays. The flag is set by a red-urgency SLA miss, any boss loss, 0 hearts, a Ransomware loss, patching an IN USE server, a Cert Ghost reaching a terminal, or losing the Friday fight. Green and yellow SLA misses leave it alone. The DNS button leaves it alone. One-time plaques: 10 days = 10 TD, 30 = 25 TD, 100 = 50 TD.
+**Days since last outage** sits on the HQ sign. It starts at 0. At each Monday 00:00 it goes +1, unless an outage flag was set this week, in which case it becomes 0 and the sad jingle plays. The flag is set by a red-urgency SLA miss, any boss loss, 0 hearts, a Ransomware loss, patching an IN USE server, a Cert Ghost reaching a terminal, or losing the Friday fight. Green and yellow SLA misses leave it alone. The DNS button leaves it alone. One-time plaques: 10 days = 10 T$, 30 = 25 T$, 100 = 50 T$.
 
 ## 6. Loading-screen tips
 
