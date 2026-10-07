@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.2] - 2026-10-06
+
+### Changed
+- Tech$$$ bills recolored teal and amber to match the Server Room Arcade site.
+
 ## [1.0.1] - 2026-10-02
 
 ### Changed
