@@ -27,7 +27,7 @@ Built by a three-model team: Claude (engine, overworld, flow, 4 mini-games), Cod
 | Disk Space Panic | Snake: eat old logs and temp junk before the volume hits 100%. Never eat system files. | 10 |
 | Password Reset Rush | Tapper: slide resets to users before they storm off. Don't reset social engineers. | 10 |
 | Patch Tuesday | Whack-a-mole: patch servers; rebooting PROD before 17:00 costs a life. | 20 |
-| VM Tetris | Place falling VMs on hosts without overcommitting CPU/RAM. Keep HA pairs apart. | 20 |
+| VM Packer | Place falling VMs on hosts without overcommitting CPU/RAM. Keep HA pairs apart. | 20 |
 | Backup Restore Run | Side-scroller through the tape vault to grab the right restore tape. | 50 |
 | Group Policy Maze | Walk the OU maze and link each GPO to the right container. | 50 |
 | Script Commit | Find the bugs in a PowerShell/Bash script before it runs on every prod server. | 50 |
@@ -56,3 +56,11 @@ Memory Leak Blob (grows until you restart it), Zombie Processes (need three zaps
 - `dev.html` launches any mini-game at any level or in boss mode.
 - Architecture and the mini-game contract: `CLAUDE.md`. Tunable numbers: `js/config.js`.
 - Grok's design brief: `docs/grok-design-brief.md`.
+
+## Copyright and trademarks
+
+© 2026 Richard Lucht. All rights reserved. The source is published so you can read how the game works; no license to copy, modify or redistribute it is granted.
+
+CCNA, CCNP and CCIE are trademarks of Cisco Systems, Inc. and/or its affiliates. PowerShell, Teams and Exchange are trademarks of the Microsoft group of companies. This game is an independent project, not sponsored by, endorsed by or affiliated with any of these companies, and it does not grant or prepare you for any certification.
+
+Part of [Server Room Arcade](https://serverroomarcade.com).

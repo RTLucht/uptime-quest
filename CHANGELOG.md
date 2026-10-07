@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.3] - 2026-10-07
+
+### Changed
+- Renamed the VM Tetris mini-game to VM Packer, and its vMotion control to Migrate (trademark safety).
+- README: copyright notice (all rights reserved) and trademark disclaimer.
+
 ## [1.0.2] - 2026-10-06
 
 ### Changed

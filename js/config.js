@@ -56,7 +56,7 @@
       { id: 'mug', name: 'COFFEE MUG', price: 15, desc: 'C = full stamina. Stacks to 3.' },
       { id: 'label', name: 'GOLDEN RUNBOOK', price: 120, desc: 'Closed sites get documented: +25% pay there. The Auditor cares.' },
       { id: 'auto', name: 'AUTOMATION SCROLL', price: 200, desc: 'Scripts password resets: those tickets close themselves for 60%.' },
-      { id: 'cert1', name: 'CERT SCROLL: ACCESS', price: 80, desc: 'Unlocks Patch Tuesday and VM Tetris tickets.' },
+      { id: 'cert1', name: 'CERT SCROLL: ACCESS', price: 80, desc: 'Unlocks Patch Tuesday and VM Packer tickets.' },
       { id: 'cert2', name: 'CERT SCROLL: SERVER', price: 200, desc: 'Unlocks Backup Restore, GPO Maze, Script Commit. +10% pay.' },
       { id: 'cert3', name: 'CERT SCROLL: SECURITY', price: 450, desc: 'Unlocks Ransomware Siege (100 T$). +25% pay. Needed for the BSOD.' },
       { id: 'shield', name: 'IMMUTABLE BACKUP SHIELD', price: 150, desc: 'Survive one failed fix per world without losing a life.' },

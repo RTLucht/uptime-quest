@@ -3,8 +3,8 @@
   const PQ = window.PQ, C = PQ.C;
   const RULES = { goals: [10, 14, 18], seconds: [90, 105, 115], cpu: 16, ram: 64, motion: 15, stuck: 22 };
   PQ.registerMinigame({
-    id: 'vm', title: 'VM TETRIS', payout: 20,
-    help: ['LEFT/RIGHT or A/D: select host.', 'DOWN/S or SPACE: drop VM.', 'Click a host to select and drop.', 'Fit BOTH CPU and RAM. 3 strikes lose.', 'HA PAIR partners need separate hosts.', 'X / click vMotion: move a placed VM.', 'vMotion recharges every 15 seconds.'],
+    id: 'vm', title: 'VM PACKER', payout: 20,
+    help: ['LEFT/RIGHT or A/D: select host.', 'DOWN/S or SPACE: drop VM.', 'Click a host to select and drop.', 'Fit BOTH CPU and RAM. 3 strikes lose.', 'HA PAIR partners need separate hosts.', 'X / click MIGRATE: move a placed VM.', 'Migrate recharges every 15 seconds.'],
     create(api) {
       const level = api.boss ? 3 : PQ.clamp(api.level || 1, 1, 3), perks = api.perks || {};
       const goal = api.boss ? 24 : RULES.goals[level - 1], limit = api.boss ? 140 : RULES.seconds[level - 1];
@@ -56,12 +56,12 @@
           const remainder = { cpu: from.cpu - vm.cpu, ram: from.ram - vm.ram, vms: from.vms.filter((_, i) => i !== index) };
           moves.push({ from, to, vm, index, frees: fits(remainder, queue[placed]) });
         })));
-        if (!moves.length) { notice = 'NO LEGAL vMOTION - REBALANCE EARLY'; PQ.sfx('error'); return; }
+        if (!moves.length) { notice = 'NO LEGAL MIGRATION - REBALANCE EARLY'; PQ.sfx('error'); return; }
         const helpful = moves.filter(m => m.frees), pool = helpful.length ? helpful : moves;
         const m = pool[Math.floor(Math.random() * pool.length)];
         m.from.vms.splice(m.index, 1); m.from.cpu -= m.vm.cpu; m.from.ram -= m.vm.ram;
         m.to.vms.push(m.vm); m.to.cpu += m.vm.cpu; m.to.ram += m.vm.ram;
-        cooldown = RULES.motion; notice = 'vMOTION: ' + m.vm.name + ' MOVED'; PQ.sfx('zap');
+        cooldown = RULES.motion; notice = 'MIGRATED: ' + m.vm.name + ' MOVED'; PQ.sfx('zap');
       }
       return {
         update(dt) {
@@ -81,11 +81,11 @@
           if (m.clicked && PQ.inRect(m, 8, 72, 304, 143)) { lane = Math.floor((m.x - 8) / width); clickDrop = true; }
           const room = hosts.some(h => fits(h, queue[placed]));
           stuck = room ? 0 : stuck + dt;
-          if (!room && pause <= 0) notice = 'NO HOST FITS! X vMOTION: ' + Math.ceil(RULES.stuck - stuck) + 's';
+          if (!room && pause <= 0) notice = 'NO HOST FITS! X MIGRATE: ' + Math.ceil(RULES.stuck - stuck) + 's';
           if (stuck >= RULES.stuck) { finish(false); return; }
           if (pause > 0) return;
           if (clickDrop || I.pressed('Space') || I.pressed('ArrowDown') || I.pressed('KeyS')) { drop(); return; }
-          // A blocked queue waits for vMotion rather than repeatedly auto-striking.
+          // A blocked queue waits for a migration rather than repeatedly auto-striking.
           if (room) { y += (level === 1 ? 11 : 15) * dt; if (y >= 139) drop(); }
         },
         draw(g) {
@@ -128,7 +128,7 @@
           particles.forEach(p => { if (p.y >= 74 && p.y < 213) PQ.rect(g, p.x, p.y, 2, 2, p.color); });
           PQ.text(g, 'A/D SELECT  SPACE DROP', 8, 226, C.grey, { size: 7, font: PQ.MONO });
           PQ.box(g, 190, 218, 122, 21, cooldown ? C.navy : C.blue);
-          PQ.text(g, 'X vMotion ' + (cooldown ? Math.ceil(cooldown) + 's' : 'READY'), 251, 225, cooldown ? C.grey : C.green, { size: 8, font: PQ.MONO, align: 'center' });
+          PQ.text(g, 'X MIGRATE ' + (cooldown ? Math.ceil(cooldown) + 's' : 'READY'), 251, 225, cooldown ? C.grey : C.green, { size: 8, font: PQ.MONO, align: 'center' });
         }
       };
     }
